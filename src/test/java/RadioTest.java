@@ -17,6 +17,16 @@ class RadioTest {
     }
 
     @Test
+    void shouldNextToMaxStation() {
+        Radio radio = new Radio();
+        radio.setMaxStation(9);
+        radio.setMinStation(0);
+        radio.setCurrentStation(8);
+        radio.nextStation();
+        assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
     void shouldNextToMinStation() {
         Radio radio = new Radio();
         radio.setMaxStation(9);
@@ -47,6 +57,16 @@ class RadioTest {
     }
 
     @Test
+    void shouldPrevToMinStation() {
+        Radio radio = new Radio();
+        radio.setMaxStation(9);
+        radio.setMinStation(0);
+        radio.setCurrentStation(1);
+        radio.prevStation();
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
     void shouldUpVolume() {
         Radio radio = new Radio();
         radio.setMaxVolume(10);
@@ -67,6 +87,16 @@ class RadioTest {
     }
 
     @Test
+    void shouldUpMinVolume() {
+        Radio radio = new Radio();
+        radio.setMaxVolume(10);
+        radio.setMinVolume(0);
+        radio.setCurrentVolume(0);
+        radio.upVolume();
+        assertEquals(1, radio.getCurrentVolume());
+    }
+
+    @Test
     void shouldDownVolume() {
         Radio radio = new Radio();
         radio.setMaxVolume(10);
@@ -84,5 +114,15 @@ class RadioTest {
         radio.setCurrentVolume(0);
         radio.downVolume();
         assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    void shouldDownMaxVolume() {
+        Radio radio = new Radio();
+        radio.setMaxVolume(10);
+        radio.setMinVolume(0);
+        radio.setCurrentVolume(10);
+        radio.downVolume();
+        assertEquals(9, radio.getCurrentVolume());
     }
 }
