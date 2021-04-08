@@ -9,7 +9,7 @@ public class Radio {
     private int minVolume;
     private int maxVolume;
 
-    public Radio(int currentStation, int currentVolume, int minVolume, int maxVolume, int maxStation, int minStation) {
+    public Radio(int currentStation,int maxStation, int minStation, int currentVolume, int minVolume, int maxVolume) {
         this.currentStation = currentStation;
         this.maxStation = maxStation;
         this.minStation = minStation;
